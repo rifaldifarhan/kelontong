@@ -12,8 +12,10 @@
     <title>Admin Page</title>
 
     <!-- Custom fonts for this template-->
-    <link href="<?= base_url('asset/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url('asset/'); ?>https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?php echo base_url('asset/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('asset/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('asset/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('asset/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
@@ -60,21 +62,6 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Form</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Components:</h6>
-                        <a class="collapse-item" href="cards.html">ID Daftar</a>
-                        <a class="collapse-item" href="#">Nama</a>
-                        <a class="collapse-item" href="#">Email</a>
-                        <a class="collapse-item" href="#">No Ponsel</a>
-                        <a class="collapse-item" href="#">Alamat</a>
-                        <a class="collapse-item" href="#">Tanggal Pemesanan</a>
-                        <a class="collapse-item" href="#">Jenis Pesanan</a>
-                        <a class="collapse-item" href="#">Deskripsi Pesanan</a>
-                        <a class="collapse-item" href="#">ID Kategori</a>
-                        <a class="collapse-item" href="#">Bukti Pembayaran</a>
-                    </div>
-                </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -89,6 +76,13 @@
                         <a class="collapse-item" href="utilities-color.html">Kategori</a>
                     </div>
                 </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>User</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -340,8 +334,49 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">I Love U</h1>
+                      <div class="card">
+                         <div class="card-header">
+                            <h3>Kelontong Desain</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped dataTable dtr-inline" role="grid" Id="kelontong">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Nomor Ponsel</th>
+                                        <th scope="col">Alamat</th>
+                                        <th scope="col">Tgl Pemesanan</th>
+                                        <th scope="col">Jenis Pesanan</th>
+                                        <th scope="col">Deskripsi</th>
+                                        <th scope="col">Kategori</th>
+                                        <th scope="col">Bukti Pembayaran</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                              <?php foreach ($allkelontong  as $value) { ?>
+                                    <tr>
+                                        <th><?php echo $value->id ?></th>
+                                        <th><?php echo $value->Nama ?></th>
+                                        <th><?php echo $value->Email ?></th>
+                                        <th><?php echo $value->Nomor_ponsel ?></th>
+                                        <th><?php echo $value->Alamat ?></th>
+                                        <th><?php echo $value->Tanggal_pemesanan ?></th>
+                                        <th><?php echo $value->Jenis_pesanan ?></th>
+                                        <th><?php echo $value->Deskripsi_pesanan ?></th>
+                                        <th><?php echo $value->id_kategori ?></th>
+                                        <th><?php echo $value->Bukti_pembayaran ?></th>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                            </div>
+                            <a href="<?php echo base_url('Admin/tambah')?>" class="btn btn-success btn-icon-split">
+                            <span class="text">Tambah Data</span>
+                            </a>
+                        </div>
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->
