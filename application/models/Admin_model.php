@@ -11,6 +11,16 @@ class Admin_model extends CI_Model
     $this->db->insert($table, $data);
   }
 
+  public function dataKategori()
+  {
+    $data = $this->db->get("kategori");
+    return $data;
+  }
+  function input_datakategori($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
   public function dataUser()
   {
     $data = $this->db->get("daftar");
@@ -20,5 +30,4 @@ class Admin_model extends CI_Model
   {
     $this->db->insert($table, $data);
   }
-  
 }

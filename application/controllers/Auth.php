@@ -27,18 +27,18 @@ class Auth extends CI_Controller
 
     private function _login()
     {
-        $email = $this->input->post('email');
-        $password = $this->input->post('password1');
+        $email = $this->input->post('email', true);
+        $password = $this->input->post('password1', true);
 
-        $daftar = $this->db->get_where('daftar', ['email' => $email])->row_array();
+        $daftar = $this->db->get_where('daftar', ['Email' => $email])->row_array();
 
         if ($daftar) {
             //jika usernya ada, cek password
             if (password_verify($password, $daftar['Kata_sandi'])) {
-                $data = [
-                    'email' => $daftar['Email'],
+                $login = [
+                    'email' => $daftar['Email']
                 ];
-                $this->session->set_userdata($data);
+                $this->session->set_userdata($login);
                 redirect('index.php/admin');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
@@ -73,10 +73,10 @@ class Auth extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $data = [
-                'Nama' => htmlspecialchars($this->input->post('name')),
-                'Email' => htmlspecialchars($this->input->post('email')),
-                'Nomor_Ponsel' => htmlspecialchars($this->input->post('nohp')),
-                'Kata_Sandi' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'Nama' => htmlspecialchars($this->input->post('name', true)),
+                'Email' => htmlspecialchars($this->input->post('email', true)),
+                'Nomor_Ponsel' => htmlspecialchars($this->input->post('nohp', true)),
+                'Kata_Sandi' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT)
             ];
             $this->db->insert('daftar', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
@@ -91,5 +91,38 @@ class Auth extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             You have been logged out!</div>');
         redirect('index.php/auth/index');
+    }
+
+    public function forgotpassword()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        if ($this->form_validation->run() == false) {
+            $data['tittle'] = 'Forgot Password';
+            $this->load->view('templates/header', $data);
+            $this->load->view('auth/forgot-password');
+            $this->load->view('templates/footer');
+        } else {
+            $email = $this->input->post('email');
+            $daftar = $this->db->get_where('daftar', ['Email' => $email])->row_array();
+
+            if ($daftar) {
+                $token = base64_encode(random_bytes(32));
+                $user_token = [
+                    'email' => $email,
+                    'token' => $token,
+                    'date_created' => time()
+                ];
+
+                $this->db->insert('user_token', $user_token);
+                // $this->_sendEmail($token, 'forgot');
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Please check your email to reset your password!</div>');
+                redirect('index.php/auth/forgotpassword');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                Email is not Registered!</div>');
+                redirect('index.php/auth/forgotpassword');
+            }
+        }
     }
 }
