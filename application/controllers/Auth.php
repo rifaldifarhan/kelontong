@@ -28,7 +28,7 @@ class Auth extends CI_Controller
     private function _login()
     {
         $email = $this->input->post('email', true);
-        $password = $this->input->post('password1', true);
+        $password = $this->input->post('password', true);
 
         $daftar = $this->db->get_where('daftar', ['Email' => $email])->row_array();
 

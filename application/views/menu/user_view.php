@@ -15,7 +15,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
                         <th scope="col">Nomor Ponsel</th>
-                        <th scope="col">Kata_Sandi</th>
+                        <!-- <th scope="col">Kata_Sandi</th> -->
                     </tr>
                 </thead>
                 <tbody>
