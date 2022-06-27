@@ -46,4 +46,66 @@ class Menu extends CI_Controller
         $this->load->view('menu/user_view', $data);
         $this->load->view('templates/admin_footer');
     }
+
+    //mengambil data input dan melemparkan ke file model
+    //menampilkan file view untuk insert data
+    public function tambah()
+    {
+        $data['tittle'] = 'Tambah User';
+        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/admin_sidebar', $data);
+        $this->load->view('templates/admin_topbar', $data);
+        $this->load->view('crud/tambah_kategori');
+        $this->load->view('templates/admin_footer');
+    }
+
+    public function input_tambah()
+    {
+        $id = $this->input->post('id');
+        $kategori = $this->input->post('kategori');
+
+        $data = array(
+            'id' => $id,
+            'kategori' => $kategori,
+        );
+        //melemparkan ke file model
+        $this->Admin_model->input_data($data, 'kategori');
+        redirect('index.php/menu/kategori'); //kembali ke halaman sebelumnya
+    }
+
+    public function edit($id)
+    {
+        $data['tittle'] = 'Edit Kategori';
+        $this->load->view('templates/admin_header', $data);
+        $this->load->view('templates/admin_sidebar', $data);
+        $this->load->view('templates/admin_topbar', $data);
+        $this->load->view('crud/edit_kategori');
+        $this->load->view('templates/admin_footer');
+
+        $where = array('id' => $id);
+        $data['kategori'] = $this->Admin_model->edit_data($where, 'kategori')->result();
+    }
+
+    public function update()
+    {
+        $id = $this->input->post('id');
+        $kategori = $this->input->post('Kategori');
+
+        $data = array(
+            'id' => $kategori,
+            'Kategori' => $kategori,
+        );
+
+        $where = array('id' => $id);
+
+        $this->Admin_model->update_data($where, $data, 'kategori');
+        redirect('index.php/menu/kategori');
+    }
+
+    public function hapus($id)
+    {
+        $where = array('id' => $id);
+        $this->Admin_model->hapus_data($where, 'kategori');
+        redirect('index.php/menu/kategori');
+    }
 }

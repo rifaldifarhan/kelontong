@@ -76,7 +76,7 @@ class Auth extends CI_Controller
                 'Nama' => htmlspecialchars($this->input->post('name', true)),
                 'Email' => htmlspecialchars($this->input->post('email', true)),
                 'Nomor_Ponsel' => htmlspecialchars($this->input->post('nohp', true)),
-                'Kata_Sandi' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT)
+                'Kata_Sandi' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
             ];
             $this->db->insert('daftar', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">

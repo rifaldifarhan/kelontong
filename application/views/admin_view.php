@@ -3,7 +3,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h3>Ini Dashboard</h3>
+            <h3>Selamat Datang di Kelontong Desain</h3>
         </div>
     </div>
     <!-- /.container-fluid -->
