@@ -3,12 +3,12 @@
 
 <div class="container-fluid">
 
-    <div class="card">
-        <div class="card-header">
-            <h3>Data User</h3>
-        </div>
-        <div class="card-body">
-            <table class="table table-striped dataTable dtr-inline" role="grid" Id="kelontong">
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h4 class="text-center font-weight-bold text-primary">Data User</h4>
+          <div class="card-body" id="table-responsive">
+              <!-- membuat table -->
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col">id</th>

@@ -5,7 +5,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Kategori Pemesanan</h6>
+            <h4 class="text-center font-weight-bold text-primary">Kategori Pemesanan</h4>
             <div class="card-body" id="table-responsive">
                 <!-- membuat table -->
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -13,10 +13,11 @@
                         <tr>
                             <th scope="col">id</th>
                             <th scope="col">Kategori</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($allkelontong  as $value) { ?>
+                        <?php foreach ($allkelontong as $value) { ?>
                             <tr>
                                 <th><?php echo $value->id ?></th>
                                 <th><?php echo $value->Kategori ?></th>
@@ -33,7 +34,7 @@
                 </table>
                 <!-- tombol untuk insert data ke database -->
                 <a href="<?php echo base_url('index.php/menu/tambah'); ?>" class="btn btn-success btn-icon-split">
-                    <span class="text">Tambah Data</span>
+                    <span class="text">+ Tambah Data Kategori</span>
                 </a>
             </div>
             </a>

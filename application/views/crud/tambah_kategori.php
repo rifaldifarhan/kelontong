@@ -15,7 +15,7 @@
           <input type="text" class="form-control form-control-user" id="kategori" name="kategori" placeholder="Kategori" required>
         </div>
         <!-- tombol submit untuk menambah data -->
-        <input type="submit" class="btn btn-success btn-icon-split" name="submit" value="Tambah">
+        <input type="submit" class="btn btn-success btn-block" name="submit" value="Tambah">
       </form>
       <hr>
       <div class="text-center">

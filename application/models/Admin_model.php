@@ -29,21 +29,24 @@ class Admin_model extends CI_Model
     $this->db->insert($table, $data);
   }
 
-  //CRUD
+  //query untuk CRUD
   function input_data($data, $table)
   {
     $this->db->insert($table, $data);
   }
 
-  public function edit_data($where, $table)
+  public function edit_data($id)
   {
-    return $this->db->get_where($table, $where);
+    $this->db->select('*');
+    $this->db->from('kategori');
+    $this->db->where('id', $id);
+    return $this->db->get();
   }
 
-  function update_data($where, $data, $table)
+  function update_data($id, $data)
   {
-    $this->db->where($where);
-    $this->db->update($table, $data);
+    $this->db->where('id', $id);
+    return $this->db->update('kategori', $data);
   }
 
   function hapus_data($where, $table)

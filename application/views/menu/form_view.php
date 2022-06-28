@@ -5,7 +5,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="m-0 font-weight-bold text-primary">Form Pembayaran</h4>
+            <h4 class="text-center font-weight-bold text-primary">Form Pembayaran</h4>
             <div class="card-body" id="table-responsive">
                 <!-- membuat table -->
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

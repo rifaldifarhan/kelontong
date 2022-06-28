@@ -42,13 +42,13 @@ class Auth extends CI_Controller
                 redirect('index.php/admin');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Wrong password!</div>');
+                Password salah!</div>');
                 redirect('index.php/auth/index');
             }
         } else {
             //jika usernya tidak ada
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-            Email is not registered!</div>');
+            Email tidak terdaftar!</div>');
             redirect('index.php/auth/index');
         }
     }
@@ -57,12 +57,12 @@ class Auth extends CI_Controller
     {
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[daftar.Email]', [
-            'is_unique' => 'This email has already registered!'
+            'is_unique' => 'Email ini sudah terdaftar!'
         ]);
         $this->form_validation->set_rules('nohp', 'NomorHP', 'required|trim');
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|matches[password2]', [
-            'matches' => 'Password dont match!',
-            'min_length' => 'Password too short!'
+            'matches' => 'Password tidak sama!',
+            'min_length' => 'Password terlalu pendek!'
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
@@ -80,7 +80,7 @@ class Auth extends CI_Controller
             ];
             $this->db->insert('daftar', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Your account has been created. Please login</div>');
+            Akun telah dibuat. Silahkan login</div>');
             redirect('index.php/auth/index');
         }
     }
@@ -89,7 +89,7 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            You have been logged out!</div>');
+            Kamu telah log out!</div>');
         redirect('index.php/auth/index');
     }
 
@@ -116,11 +116,11 @@ class Auth extends CI_Controller
                 $this->db->insert('user_token', $user_token);
                 // $this->_sendEmail($token, 'forgot');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Please check your email to reset your password!</div>');
+                Cek email untuk reset password!</div>');
                 redirect('index.php/auth/forgotpassword');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Email is not Registered!</div>');
+                Email tidak terdaftar!</div>');
                 redirect('index.php/auth/forgotpassword');
             }
         }

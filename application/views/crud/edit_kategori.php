@@ -4,18 +4,19 @@
       <div class="text-center">
         <h1 class="h4 text-gray-900 mb-4">Edit Kategori</h1>
       </div>
+      <?php foreach ($kategori as $value); ?>
       <!-- form input -->
-      <form class="form" action="<?= base_url('index.php/menu/edit'); ?>" method="post">
+      <form class="form" action="<?= base_url('index.php/Menu/update'); ?>" method="post">
         <!-- id -->
         <div class="form-group">
-          <input type="text" class="form-control form-control-name" id="name" name="name" placeholder="Id" require>
+          <input type="text" class="form-control form-control-name" id="id" name="id" value="<?php echo $value->id; ?>" required>
         </div>
         <!-- Kategori -->
         <div class="form-group">
-          <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Kategori" require>
+          <input type="text" class="form-control form-control-name" id="kategori" name="kategori" value="<?php echo $value->Kategori; ?>" required>
         </div>
         <!-- tombol submit untuk menambah data -->
-        <input type="submit" class="btn btn-success btn-icon-split" name="submit" value="Tambah">
+        <input type="submit" class="btn btn-success btn-block" name="submit" value="Update">
       </form>
       <hr>
       <div class="text-center">

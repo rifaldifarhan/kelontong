@@ -70,35 +70,36 @@ class Menu extends CI_Controller
         );
         //melemparkan ke file model
         $this->Admin_model->input_data($data, 'kategori');
-        redirect('index.php/menu/kategori'); //kembali ke halaman sebelumnya
+        redirect('index.php/menu/kategori');
     }
 
     public function edit($id)
     {
+
+        $data = array(
+            'id' => $id,
+            'kategori' => $this->Admin_model->edit_data($id)->result()
+        );
+
+
         $data['tittle'] = 'Edit Kategori';
         $this->load->view('templates/admin_header', $data);
         $this->load->view('templates/admin_sidebar', $data);
         $this->load->view('templates/admin_topbar', $data);
         $this->load->view('crud/edit_kategori');
         $this->load->view('templates/admin_footer');
-
-        $where = array('id' => $id);
-        $data['kategori'] = $this->Admin_model->edit_data($where, 'kategori')->result();
     }
 
     public function update()
     {
         $id = $this->input->post('id');
-        $kategori = $this->input->post('Kategori');
+        $kategori = $this->input->post('kategori');
 
         $data = array(
-            'id' => $kategori,
-            'Kategori' => $kategori,
+            'Kategori' => $kategori
         );
 
-        $where = array('id' => $id);
-
-        $this->Admin_model->update_data($where, $data, 'kategori');
+        ($this->Admin_model->update_data($id, $data));
         redirect('index.php/menu/kategori');
     }
 
