@@ -21,7 +21,7 @@
       <hr>
       <div class="text-center">
         <!-- untuk membatalkan aksi dan kembali ke halaman sebelumnya -->
-        <a class="small" href="<?= base_url('index.php/menu/kategori'); ?>">Kembali</a>
+        <a class="small" href="<?= base_url('index.php/Menu/kategori'); ?>">Kembali</a>
       </div>
     </div>
   </div>

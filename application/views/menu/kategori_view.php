@@ -21,11 +21,11 @@
                             <tr>
                                 <th><?php echo $value->id ?></th>
                                 <th><?php echo $value->Kategori ?></th>
-                                <th><a href="<?php echo base_url('index.php/menu/edit/'.$value->id); ?>" class="btn btn-success">
-                                    <span class="text">Edit</span>&nbsp;
+                                <th><a href="<?php echo base_url('index.php/Menu/edit/' . $value->id); ?>" class="btn btn-success">
+                                        <span class="text">Edit</span>&nbsp;
                                     </a>
-                                    <a href="<?php echo base_url('index.php/menu/hapus'); ?>/<?php echo $value->id ?>" onclick="return confirm('Apakah anda yakin?')" class="btn btn-danger">
-                                      <span class="text">Hapus</span>
+                                    <a href="<?php echo base_url('index.php/Menu/hapus'); ?>/<?php echo $value->id ?>" onclick="return confirm('Apakah anda yakin?')" class="btn btn-danger">
+                                        <span class="text">Hapus</span>
                                     </a>
                             </tr>
 
@@ -33,7 +33,7 @@
                     </tbody>
                 </table>
                 <!-- tombol untuk insert data ke database -->
-                <a href="<?php echo base_url('index.php/menu/tambah'); ?>" class="btn btn-success btn-icon-split">
+                <a href="<?php echo base_url('index.php/Menu/tambah'); ?>" class="btn btn-success btn-icon-split">
                     <span class="text">+ Tambah Data Kategori</span>
                 </a>
             </div>

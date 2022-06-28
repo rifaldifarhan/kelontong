@@ -5,7 +5,7 @@
         <h1 class="h4 text-gray-900 mb-4">Tambah Kategori</h1>
       </div>
       <!-- form input -->
-      <form class="form" action="<?= base_url('index.php/menu/input_tambah'); ?>" method="post">
+      <form class="form" action="<?= base_url('index.php/Menu/input_tambah'); ?>" method="post">
         <!-- id -->
         <div class="form-group">
           <input type="text" class="form-control form-control-name" id="id" name="id" placeholder="ID" required>
@@ -20,7 +20,7 @@
       <hr>
       <div class="text-center">
         <!-- untuk membatalkan aksi dan kembali ke halaman sebelumnya -->
-        <a class="small" href="<?= base_url('index.php/menu/kategori'); ?>">Kembali</a>
+        <a class="small" href="<?= base_url('index.php/Menu/kategori'); ?>">Kembali</a>
       </div>
     </div>
   </div>

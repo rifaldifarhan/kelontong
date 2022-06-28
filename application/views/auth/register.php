@@ -11,7 +11,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user" method="POST" action="<?= base_url('index.php/auth/register') ?>">
+                            <form class="user" method="POST" action="<?= base_url('index.php/Auth/register') ?>">
                                 <div class="form-group row">
                                     <div class="col-lg mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Full Name" value="<?= set_value('name'); ?>">
@@ -40,10 +40,10 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="<?= base_url('index.php/auth/forgotpassword'); ?>">Forgot Password?</a>
+                                <a class="small" href="<?= base_url('index.php/Auth/forgotpassword'); ?>">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="<?= base_url('index.php/auth/index'); ?>">Already have an account? Login!</a>
+                                <a class="small" href="<?= base_url('index.php/Auth/index'); ?>">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>

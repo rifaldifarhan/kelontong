@@ -19,7 +19,7 @@
 
                                     <?= $this->session->flashdata('message'); ?>
 
-                                    <form class="user" method="post" action="<?= base_url('index.php/auth/index'); ?>">
+                                    <form class="user" method="post" action="<?= base_url('index.php/Auth/index'); ?>">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Enter Email Address..." value="<?= set_value('email'); ?>">
                                             <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
@@ -34,10 +34,10 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('index.php/auth/forgotpassword'); ?>">Forgot Password?</a>
+                                        <a class="small" href="<?= base_url('index.php/Auth/forgotpassword'); ?>">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('index.php/auth/register'); ?>">Create an Account!</a>
+                                        <a class="small" href="<?= base_url('index.php/Auth/register'); ?>">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
