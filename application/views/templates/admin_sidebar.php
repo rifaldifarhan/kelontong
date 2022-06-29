@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('index.php/admin'); ?>">
+        <a class="nav-link" href="<?= base_url('index.php/Admin'); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('index.php/menu/form'); ?>">
+        <a class="nav-link" href="<?= base_url('index.php/Menu/form'); ?>">
             <i class="fas fa-fw fa-solid fa-square-list"></i>
             <span>Form</span></a>
         </a>
@@ -40,7 +40,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('index.php/menu/kategori'); ?>">
+        <a class="nav-link" href="<?= base_url('index.php/Menu/kategori'); ?>">
             <i class="fas fa-fw fa-solid fa-layer-group"></i>
             <span>Kategori</span></a>
         </a>
@@ -50,7 +50,7 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('index.php/menu/user'); ?>">
+        <a class="nav-link" href="<?= base_url('index.php/Menu/user'); ?>">
             <i class="fas fa-fw fa-solid fa-user-vneck"></i>
             <span>User</span></a>
         </a>
@@ -60,7 +60,7 @@
     <hr class="sidebar-divider my-0">
 
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('index.php/auth/logout'); ?>">
+        <a class="nav-link" href="<?= base_url('index.php/Auth/logout'); ?>">
             <i class="fas fa-fw fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
         </a>

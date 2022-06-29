@@ -39,17 +39,17 @@ class Auth extends CI_Controller
                     'email' => $daftar['Email']
                 ];
                 $this->session->set_userdata($login);
-                redirect('index.php/admin');
+                redirect('index.php/Admin');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                 Password salah!</div>');
-                redirect('index.php/auth/index');
+                redirect('index.php/Auth/index');
             }
         } else {
             //jika usernya tidak ada
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
             Email tidak terdaftar!</div>');
-            redirect('index.php/auth/index');
+            redirect('index.php/Auth/index');
         }
     }
 
@@ -81,7 +81,7 @@ class Auth extends CI_Controller
             $this->db->insert('daftar', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Akun telah dibuat. Silahkan login</div>');
-            redirect('index.php/auth/index');
+            redirect('index.php/Auth/index');
         }
     }
 
@@ -90,7 +90,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('email');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Kamu telah log out!</div>');
-        redirect('index.php/auth/index');
+        redirect('index.php/Auth/index');
     }
 
     public function forgotpassword()
@@ -117,11 +117,11 @@ class Auth extends CI_Controller
                 // $this->_sendEmail($token, 'forgot');
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Cek email untuk reset password!</div>');
-                redirect('index.php/auth/forgotpassword');
+                redirect('index.php/Auth/forgotpassword');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                 Email tidak terdaftar!</div>');
-                redirect('index.php/auth/forgotpassword');
+                redirect('index.php/Auth/forgotpassword');
             }
         }
     }
